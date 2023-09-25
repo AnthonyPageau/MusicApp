@@ -1,0 +1,2 @@
+class SubGenresArtistsJoinTable < ApplicationRecord
+end

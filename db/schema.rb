@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_25_021921) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_25_023422) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "artists_genres", id: false, force: :cascade do |t|
+    t.integer "genre_id", null: false
+    t.integer "artist_id", null: false
+    t.index "\"artists_id\"", name: "index_artists_genres_on_artists_id"
+    t.index ["genre_id"], name: "index_artists_genres_on_genre_id"
+  end
+
+  create_table "artists_sub_genres", id: false, force: :cascade do |t|
+    t.integer "sub_genre_id", null: false
+    t.integer "artist_id", null: false
+    t.index "\"artists_id\"", name: "index_artists_sub_genres_on_artists_id"
+    t.index ["sub_genre_id"], name: "index_artists_sub_genres_on_sub_genre_id"
   end
 
   create_table "genres", force: :cascade do |t|
