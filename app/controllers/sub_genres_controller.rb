@@ -1,5 +1,6 @@
 class SubGenresController < ApplicationController
   before_action :set_sub_genre, only: %i[ show edit update destroy ]
+  before_action :set_genre, only: %i[ new edit update ]
 
   # GET /sub_genres or /sub_genres.json
   def index
@@ -61,6 +62,10 @@ class SubGenresController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_sub_genre
       @sub_genre = SubGenre.find(params[:id])
+    end
+
+    def set_genre
+      @genre = Genre.all
     end
 
     # Only allow a list of trusted parameters through.

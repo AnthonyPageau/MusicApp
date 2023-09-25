@@ -22,3 +22,168 @@
   background: #3baeff;
   color: white;
 }
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  border: 2px solid #3baeff;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #3baeff;
+  color: white; 
+}
+
+td {
+  background-color: #f2f2f2;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+}
+
+
+tr:hover {
+  background-color: #3baeff;
+  color: white;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #2980b9;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+.index-item {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.search-bar {
+  display: inline-block;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+.button-container {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.search-button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #2980b9;
+}
+
+.form-container {
+  background-color: #EFEFEF;
+  padding: 10px;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.error-heading {
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.error-list {
+  list-style-type: disc;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-label {
+  display: block;
+  color: #333;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.submit-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  min-height: 100px;
+}
+
+.error-box {
+  background-color: #EFEFEF;
+  padding: 10px;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.error-box h2 {
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.form-actions {
+  margin-top: 10px;
+}

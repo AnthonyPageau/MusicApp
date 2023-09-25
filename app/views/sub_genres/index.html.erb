@@ -1,14 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Sub genres</h1>
+<div id="sub_genres" style="text-align: center;">
+  <div class="search-bar">
+    <%= form_tag(sub_genres_path, method: "get") do %>
+      <%= text_field_tag(:name, params[:name], placeholder: "Search by name") %>
+      <%= submit_tag("Search", class: "search-button") %>
+    <% end %>
+  </div>
 
-<div id="sub_genres">
+  <div class="button-container">
+    <%= link_to "New sub genre", new_sub_genre_path, class: "button" %>
+  </div>
+
   <% @sub_genres.each do |sub_genre| %>
-    <%= render sub_genre %>
-    <p>
-      <%= link_to "Show this sub genre", sub_genre %>
-    </p>
+    <div class="index-item">
+      <span><b> Name </b>: <%= sub_genre.name %> </span><br>
+      <span><b> Description</b>: <%= sub_genre.description %> </span><br>
+      <span><b> Genre </b>: <%= link_to sub_genre.genre.name, sub_genre%> </span>
+      <p>
+        <%= link_to "Show this sub genre", sub_genre, class: "button" %>
+      </p>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New sub genre", new_sub_genre_path %>

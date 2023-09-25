@@ -1,10 +1,27 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @genre %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Sub Genres</th>
+    </tr>
+  </thead>
 
-<div>
-  <%= link_to "Edit this genre", edit_genre_path(@genre) %> |
-  <%= link_to "Back to genres", genres_path %>
+  <tbody>
+      <tr>
+        <td><%= @genre.name %></td>
+        <td><%= @genre.description %></td>
+        <td class="genre-list"><%= @genre.sub_genres.map(&:name).join(", ") %></td>
+      </tr>
+  </tbody>
+</table>
+<br>
 
-  <%= button_to "Destroy this genre", @genre, method: :delete %>
+<div style="text-align: center;">
+  <%= link_to "Edit this genre", edit_genre_path(@genre), class: "button" %> |
+  <%= link_to "Back to genres", genres_path, class: "button" %>
+
+  <%=  button_to "Destroy this genre", @genre, method: :delete, data: { confirm: "Are you sure?" }, class: "delete-button" %>
 </div>

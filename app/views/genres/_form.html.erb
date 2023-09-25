@@ -1,9 +1,9 @@
 <%= form_with(model: genre) do |form| %>
   <% if genre.errors.any? %>
-    <div style="color: red">
+    <div class="error-box">
       <h2><%= pluralize(genre.errors.count, "error") %> prohibited this genre from being saved:</h2>
 
-      <ul>
+      <ul class="error-list">
         <% genre.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-input" %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-textarea" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= form.submit class: "submit-button" %>
   </div>
 <% end %>

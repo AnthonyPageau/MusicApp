@@ -1,5 +1,7 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: %i[ show edit update destroy ]
+  # before_action :set_genres, only: %i[ new edit update ]
+  # before_action :set_sub_genres, only: %i[ new edit update ]
 
   # GET /artists or /artists.json
   def index
@@ -62,6 +64,14 @@ class ArtistsController < ApplicationController
     def set_artist
       @artist = Artist.find(params[:id])
     end
+
+    # def set_genres
+    #   @genres = Genre.all
+    # end
+
+    # def set_sub_genres
+    #   @sub_genres = SubGenre.all
+    # end
 
     # Only allow a list of trusted parameters through.
     def artist_params

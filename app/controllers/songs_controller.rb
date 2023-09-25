@@ -1,6 +1,8 @@
 class SongsController < ApplicationController
   before_action :set_song, only: %i[ show edit update destroy ]
-
+  before_action :set_artists, only: %i[ new edit update ]
+  before_action :set_sub_genres, only: %i[ new edit update ]
+  
   # GET /songs or /songs.json
   def index
     @songs = Song.all
@@ -65,6 +67,14 @@ class SongsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def song_params
-      params.require(:song).permit(:name, :sub_genre_id)
+      params.require(:song).permit(:name, :sub_genre_id, :artist_id)
+    end
+
+    def set_artists
+      @artist = Artist.all
+    end
+
+    def set_sub_genres
+      @sub_genres = SubGenre.all
     end
 end

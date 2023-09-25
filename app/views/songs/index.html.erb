@@ -1,14 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Songs</h1>
+<div id="songs" style="text-align: center;">
+  <div class="search-bar">
+    <%= form_tag(songs_path, method: "get") do %>
+      <%= text_field_tag(:name, params[:name], placeholder: "Search by name") %>
+      <%= submit_tag("Search", class: "search-button") %>
+    <% end %>
+  </div>
 
-<div id="songs">
+  <div class="button-container">
+    <%= link_to "New song", new_song_path, class: "button" %>
+  </div>
+
   <% @songs.each do |song| %>
-    <%= render song %>
-    <p>
-      <%= link_to "Show this song", song %>
-    </p>
+    <div class="index-item">
+      <%= render song %>
+      <p>
+        <%= link_to "Show this song", song, class: "button" %>
+      </p>
+    </div>
   <% end %>
 </div>
-
-<%= link_to "New song", new_song_path %>

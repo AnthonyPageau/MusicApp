@@ -1,9 +1,9 @@
 <%= form_with(model: sub_genre) do |form| %>
   <% if sub_genre.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(sub_genre.errors.count, "error") %> prohibited this sub_genre from being saved:</h2>
+    <div class="form-container">
+      <h2 class="error-heading"><%= pluralize(sub_genre.errors.count, "error") %> prohibited this sub_genre from being saved:</h2>
 
-      <ul>
+      <ul class="error-list">
         <% sub_genre.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="form-group">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-input" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_field :description, class: "form-input" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :genre_id, class: "form-label" %>
+    <%= form.collection_select(:genre_id, @genre, :id, :name, {}, { class: "form-input" }) %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :genre_id, style: "display: block" %>
-    <%= form.text_field :genre_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit class: "submit-button" %>
   </div>
 <% end %>

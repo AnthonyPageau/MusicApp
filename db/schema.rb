@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_25_023422) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_25_024251) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "country"
@@ -44,6 +44,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_023422) do
     t.integer "sub_genre_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "artist_id"
+    t.index ["artist_id"], name: "index_songs_on_artist_id"
     t.index ["sub_genre_id"], name: "index_songs_on_sub_genre_id"
   end
 
@@ -56,6 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_023422) do
     t.index ["genre_id"], name: "index_sub_genres_on_genre_id"
   end
 
+  add_foreign_key "songs", "artists"
   add_foreign_key "songs", "sub_genres"
   add_foreign_key "sub_genres", "genres"
 end
