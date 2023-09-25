@@ -1,13 +1,13 @@
 <main>
-  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+  <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-dark">
     <div class="col-md-5 p-lg-5 mx-auto my-5">
-      <h1 class="display-4 fw-normal">SHARE YOUR MUSIC!</h1>
-      <p class="lead fw-normal">Share your favorite music from any platform from any genre</p>
-      <div class="btn btn-outline-secondary">
+      <h1 class="display-4 fw-normal nice-blue-color">SHARE YOUR MUSIC!</h1>
+      <p class="lead fw-normal nice-blue-color">Share your favorite music from any platform from any genre</p>
+      <div>
         <% if current_user %>
-          <%= link_to 'Log out', user_session_path(current_user), data: { turbo_method: :delete } %><br>
+          <%= link_to 'Log out', user_session_path(current_user), class: "btn search btn-lg px-5 login-button", data: { turbo_method: :delete } %><br>
         <% else %>
-          <%= link_to 'Login', new_user_session_path %><br>
+          <%= link_to 'Login', new_user_session_path, class: "btn search btn-lg px-5 login-button" %><br>
         <% end %>
       </div>
     </div>

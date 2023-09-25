@@ -1,19 +1,15 @@
-<h1>Users</h1>
-
 <%= link_to 'New User', new_user_path, class: "button" %>
 
 <table>
   <thead>
     <tr>
-      <th>id</th>
-      <th>name</th>
+      <th>Username</th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.id %></td>
-        <td><%= user.username %></td>
+        <td><%= link_to user.username, user_path(user),style: 'text-decoration: none; color: black;'  %></td>
       </tr>
     <% end %>
   </tbody>

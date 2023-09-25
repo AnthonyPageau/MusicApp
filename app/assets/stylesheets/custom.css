@@ -221,3 +221,28 @@ tr:hover {
 .border-color {
   border-color: #3baeff;
 }
+
+.form-control::placeholder {
+  color: #3baeff;
+}
+
+.dropdown-menu {
+  background-color: #000;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu a {
+  color: #3baeff;
+  text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+  background-color: #3baeff;
+  color: #fff;
+}
+
+.link-text {
+  color: #3baeff;
+  text-decoration: none;
+}

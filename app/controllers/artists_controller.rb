@@ -59,6 +59,16 @@ class ArtistsController < ApplicationController
     end
   end
 
+  def find_artist
+    artist = Artist.find_by(name: params[:search])
+    if artist
+      redirect_to artist_path(artist)
+    else
+      flash[:alert] = "Can't find artist with name #{params[:search]}"
+      redirect_to artists_url
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_artist

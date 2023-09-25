@@ -59,6 +59,17 @@ class SongsController < ApplicationController
     end
   end
 
+  def find_song
+    song = Song.find_by(name: params[:search])
+
+    if song
+      redirect_to song_path(song)
+    else
+      flash[:alert] = "Can't find song with name #{params[:search]}"
+      redirect_to songs_url
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_song

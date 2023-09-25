@@ -7,30 +7,38 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link nice-blue-color" aria-current="page" href="#">Home</a>
         </li>
         <% if current_user %>
           <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <%= link_to "Profile", user_path(current_user), class: "nav-link nice-blue-color" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Add Music!", new_song_path, class: "nav-link nice-blue-color" %>
+          </li>
+        <% else%>
+          <li class="nav-item">
+            <%= link_to 'Sign up!', new_user_path, class: "nav-link nice-blue-color" %>
           </li>
         <% end %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle nice-blue-color" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Music
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><%= link_to "Genres", genres_path %></li>
             <li><%= link_to "Subgenres", sub_genres_path %></li>
             <li><%= link_to "Artists", artists_path %></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "Add Music!", new_song_path %></li>
+            <li><%= link_to "Songs", songs_path %></li>
           </ul>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search profile" aria-label="Search">
-        <button class="btn btn-outline-primary search" type="submit">Search</button>
-      </form>
+      <%= form_with(url: find_user_pages_path, method: :get, class: "form-inline") do |form| %>
+        <div class="input-group">
+          <%= form.text_field :search, class: "form-control me-2", placeholder: "Search profile", aria: { label: "Search" } %>
+          <%= form.submit 'Search', class: "btn btn-outline-primary search" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </nav>

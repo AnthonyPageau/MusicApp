@@ -58,6 +58,16 @@ class SubGenresController < ApplicationController
     end
   end
 
+  def find_sub_genre
+    sub_genre = SubGenre.find_by(name: params[:search])
+    if sub_genre
+      redirect_to sub_genre_path(sub_genre)
+    else
+      flash[:alert] = "Can't find Sub genre with name #{params[:search]}"
+      redirect_to sub_genres_url
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sub_genre

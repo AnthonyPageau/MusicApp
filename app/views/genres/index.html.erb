@@ -2,10 +2,12 @@
 
 <div id="genres" style="text-align: center;">
   <div class="search-bar">
-    <%= form_tag(genres_path, method: "get") do %>
-      <%= text_field_tag(:name, params[:name], placeholder: "Search by name") %>
-      <%= submit_tag("Search", class: "search-button") %>
-    <% end %>
+      <%= form_with(url: find_genre_genres_path, method: :get, class: "form-inline") do |form| %>
+        <div class="input-group">
+          <%= form.text_field :search, class: "form-control me-2", placeholder: "Search profile", aria: { label: "Search" } %>
+          <%= form.submit 'Search', class: "btn btn-outline-primary search" %>
+        </div>
+      <% end %>
   </div>
 
   <div class="button-container">
