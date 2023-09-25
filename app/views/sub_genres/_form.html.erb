@@ -1,0 +1,32 @@
+<%= form_with(model: sub_genre) do |form| %>
+  <% if sub_genre.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(sub_genre.errors.count, "error") %> prohibited this sub_genre from being saved:</h2>
+
+      <ul>
+        <% sub_genre.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :genre_id, style: "display: block" %>
+    <%= form.text_field :genre_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

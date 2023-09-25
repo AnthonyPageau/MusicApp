@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Sub genres</h1>
+
+<div id="sub_genres">
+  <% @sub_genres.each do |sub_genre| %>
+    <%= render sub_genre %>
+    <p>
+      <%= link_to "Show this sub genre", sub_genre %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New sub genre", new_sub_genre_path %>
