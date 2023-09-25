@@ -16,7 +16,8 @@
 
   <% @songs.each do |song| %>
     <div class="index-item">
-      <%= render song %>
+      <span><b> Name </b>: <%= song.name %> </span><br>
+      <span><b>Sub genre</b>: <%= link_to song.sub_genre.name, sub_genre_path(song.sub_genre) %> </span><br>
       <p>
         <%= link_to "Show this song", song, class: "button" %>
       </p>

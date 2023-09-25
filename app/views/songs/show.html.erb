@@ -1,10 +1,33 @@
 <p style="color: green"><%= notice %></p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Sub Genre</th>
+      <th>artist</th>
+    </tr>
+  </thead>
 
-<%= render @song %>
+  <tbody>
+      <tr>
+        <td>
+          <%= @song.name %>
+        </td>
+        <td class='link-text'><%= link_to @song.sub_genre.name, sub_genre_path(@song.sub_genre) %></td>
+        <td class='link-text'>
+          <% if @song.artist.present? %>
+            <%= link_to @song.artist.name, artist_path(@song.artist) %>
+          <% end %>
+        </td>
+      </tr>
+  </tbody>
+</table>
+<br>
 
-<div>
-  <%= link_to "Edit this song", edit_song_path(@song) %> |
-  <%= link_to "Back to songs", songs_path %>
+<div style="text-align: center;">
+  <%= link_to "Edit this song", edit_song_path(@song), class: "button" %> |
+  <%= link_to "Back to songs", songs_path, class: "button" %>
 
-  <%= button_to "Destroy this song", @song, method: :delete %>
+  <%= button_to "Destroy this song", @song, method: :delete, data: { confirm: "Are you sure?" }, class: "delete-button" %>
 </div>
+
