@@ -1,0 +1,24 @@
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #3baeff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #85f4ff;
+  text-decoration: none;
+}
+
+/* Blue */
+.search {
+  border-color: #3baeff;
+  color: #3baeff
+}
+
+.search:hover {
+  background: #3baeff;
+  color: white;
+}
