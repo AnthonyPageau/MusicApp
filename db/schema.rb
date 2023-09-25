@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_25_012510) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_25_020755) do
   create_table "genres", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "description"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "name"
+    t.integer "sub_genre_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sub_genre_id"], name: "index_songs_on_sub_genre_id"
   end
 
   create_table "sub_genres", force: :cascade do |t|
@@ -27,5 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_012510) do
     t.index ["genre_id"], name: "index_sub_genres_on_genre_id"
   end
 
+  add_foreign_key "songs", "sub_genres"
   add_foreign_key "sub_genres", "genres"
 end

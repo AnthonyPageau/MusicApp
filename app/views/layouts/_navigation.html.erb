@@ -17,10 +17,10 @@
             Music
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to "All Genres", genres_path %></li>
-            <li><%= link_to "All Subgenres", sub_genres_path %></li>
+            <li><%= link_to "Genres", genres_path %></li>
+            <li><%= link_to "Subgenres", sub_genres_path %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><%= link_to "Add Music!", new_song_path %></li>
           </ul>
         </li>
       </ul>
