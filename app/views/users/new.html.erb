@@ -1,27 +1,30 @@
-<h1>Users#new</h1>
-<%= form_with model: @user do |f| %>
+<%= form_with model: @user, class: 'user-form' do |f| %>
   <% if @user.errors.any? %>
-    <div>
-      <ul>
+    <div class="error-box">
+      <ul class="error-list">
         <% @user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
-  <div>
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+
+  <div class="form-group">
+    <%= f.label :username, class: 'form-label' %><br>
+    <%= f.text_field :username, class: 'form-input' %>
   </div>
-  <div>
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
+
+  <div class="form-group">
+    <%= f.label :password, class: 'form-label' %><br>
+    <%= f.password_field :password, class: 'form-input' %>
   </div>
-  <div>
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: 'form-label' %><br>
+    <%= f.password_field :password_confirmation, class: 'form-input' %>
   </div>
+
   <p>
-    <%= f.submit %>
+    <%= f.submit class: 'submit-button' %>
   </p>
 <% end %>

@@ -1,9 +1,9 @@
 <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
-    <div style="color: red">
+    <div class="error-box">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
+      <ul class="error-list">
         <% user.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :username, style: "display: block" %>
-    <%= form.text_field :username %>
+  <div class="form-group">
+    <%= form.label :username, class: "form-label" %>
+    <%= form.text_field :username, class: "form-input" %>
   </div>
 
-  <div>
-    <%= form.label :password_digest, style: "display: block" %>
-    <%= form.text_field :password_digest %>
+  <div class="form-group">
+    <%= form.label :password_digest, class: "form-label" %>
+    <%= form.password_field :password_digest, class: "form-input" %>
   </div>
 
-  <div>
-    <%= form.label :password_confirmation, style: "display: block" %>
-    <%= form.text_field :password_confirmation %>
+  <div class="form-group">
+    <%= form.label :password_confirmation, class: "form-label" %>
+    <%= form.password_field :password_confirmation, class: "form-input" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-actions">
+    <%= form.submit class: "submit-button" %>
   </div>
-<% end %>
+</form>
