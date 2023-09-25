@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_25_135508) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_25_195053) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "country"
@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_135508) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "artist_id"
+    t.string "song_link"
     t.index ["artist_id"], name: "index_songs_on_artist_id"
     t.index ["sub_genre_id"], name: "index_songs_on_sub_genre_id"
   end

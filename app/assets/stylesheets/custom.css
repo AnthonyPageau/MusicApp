@@ -246,3 +246,15 @@ tr:hover {
   color: #3baeff;
   text-decoration: none;
 }
+
+.song-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.song-name {
+  margin-bottom: 10px;
+}

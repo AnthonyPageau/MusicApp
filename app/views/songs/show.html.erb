@@ -11,7 +11,10 @@
   <tbody>
       <tr>
         <td>
-          <%= @song.name %>
+          <div class="song-container">
+            <p class="song-name"><%= @song.name %></p>
+              <iframe src="https://open.spotify.com/embed/track/<%= @song.song_link %>" width="300" height="100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          </div>
         </td>
         <td class='link-text'><%= link_to @song.sub_genre.name, sub_genre_path(@song.sub_genre) %></td>
         <td class='link-text'>
@@ -30,4 +33,3 @@
 
   <%= button_to "Destroy this song", @song, method: :delete, data: { confirm: "Are you sure?" }, class: "delete-button" %>
 </div>
-
