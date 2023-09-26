@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_25_195053) do
   create_table "artists_genres", id: false, force: :cascade do |t|
     t.integer "genre_id", null: false
     t.integer "artist_id", null: false
-    t.index "\"artists_id\"", name: "index_artists_genres_on_artists_id"
+    t.index ["artist_id"], name: "index_artists_genres_on_artist_id"
     t.index ["genre_id"], name: "index_artists_genres_on_genre_id"
   end
 
