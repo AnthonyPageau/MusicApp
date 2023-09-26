@@ -13,7 +13,11 @@
       <tr>
         <td><%= @genre.name %></td>
         <td><%= @genre.description %></td>
-        <td class="genre-list"><%= @genre.sub_genres.map(&:name).join(", ") %></td>
+        <td>
+          <% @genre.sub_genres.each do |sub_genre| %>
+            <%= link_to sub_genre.name, sub_genre, class: "link-text" %><%= "," unless sub_genre == @genre.sub_genres.last %>
+          <% end %>
+        </td>
       </tr>
   </tbody>
 </table>

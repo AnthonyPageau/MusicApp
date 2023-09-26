@@ -4,7 +4,7 @@
   <div class="search-bar">
       <%= form_with(url: find_genre_genres_path, method: :get, class: "form-inline") do |form| %>
         <div class="input-group">
-          <%= form.text_field :search, class: "form-control me-2", placeholder: "Search profile", aria: { label: "Search" } %>
+          <%= form.text_field :search, class: "form-control me-2", placeholder: "Search genre", aria: { label: "Search" } %>
           <%= form.submit 'Search', class: "btn btn-outline-primary search" %>
         </div>
       <% end %>
@@ -21,7 +21,7 @@
       <div class="genre-list">
         <p><b>Sub Genres:</b>
           <% genre.sub_genres.each do |sub_genre| %>
-            <%= link_to sub_genre.name, sub_genre %><%= "," unless sub_genre == genre.sub_genres.last %>
+            <%= link_to sub_genre.name, sub_genre, class: "link-text" %><%= "," unless sub_genre == genre.sub_genres.last %>
           <% end %>
         </p>
       </div>

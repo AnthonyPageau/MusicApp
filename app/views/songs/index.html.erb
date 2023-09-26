@@ -4,7 +4,7 @@
   <div class="search-bar">
     <%= form_with(url: find_song_songs_path, method: :get, class: "form-inline") do |form| %>
       <div class="input-group">
-        <%= form.text_field :search, class: "form-control me-2", placeholder: "Search profile", aria: { label: "Search" } %>
+        <%= form.text_field :search, class: "form-control me-2", placeholder: "Search song", aria: { label: "Search" } %>
         <%= form.submit 'Search', class: "btn btn-outline-primary search" %>
       </div>
     <% end %>
@@ -17,7 +17,7 @@
   <% @songs.each do |song| %>
     <div class="index-item">
       <span><b> Name </b>: <%= song.name %> </span><br>
-      <span><b>Sub genre</b>: <%= link_to song.sub_genre.name, sub_genre_path(song.sub_genre) %> </span><br>
+      <span><b>Sub genre</b>: <%= link_to song.sub_genre.name, sub_genre_path(song.sub_genre), class: "link-text" %> </span><br>
       <p>
         <iframe src="https://open.spotify.com/embed/track/<%= song.song_link %>" width="300" height="100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
       </p>

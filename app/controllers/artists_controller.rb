@@ -23,7 +23,10 @@ class ArtistsController < ApplicationController
 
   # POST /artists or /artists.json
   def create
-    @artist = Artist.new(artist_params)
+    @artist = Artist.new(name: params[:artist][:name], country: params[:artist][:country])
+
+    @artist.genres << genre
+    @artist.sub_genres << sub_genre
 
     respond_to do |format|
       if @artist.save
@@ -70,21 +73,20 @@ class ArtistsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+    def genre
+      Genre.find(params[:artist][:genre_id])
+    end
+
+    def sub_genre
+      SubGenre.find(params[:artist][:sub_genre_id])
+    end
+
     def set_artist
       @artist = Artist.find(params[:id])
     end
 
-    # def set_genres
-    #   @genres = Genre.all
-    # end
-
-    # def set_sub_genres
-    #   @sub_genres = SubGenre.all
-    # end
-
-    # Only allow a list of trusted parameters through.
     def artist_params
-      params.require(:artist).permit(:name, :country)
+      params.require(:artist).permit(:name, :country, :genre_id, :sub_genre_id)
     end
 end

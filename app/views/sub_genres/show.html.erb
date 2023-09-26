@@ -13,7 +13,7 @@
       <tr>
         <td><%= @sub_genre.name %></td>
         <td><%= @sub_genre.description %></td>
-        <td><%= @sub_genre.genre.name %></td>
+        <td><%= link_to @sub_genre.genre.name, sub_genre_path(@sub_genre), class: "link-text" %></td>
       </tr>
   </tbody>
 </table>
