@@ -14,13 +14,13 @@
         <td><%= @artist.name %></td>
         <td><%= @artist.country %></td>
         <td>
-          <% @artist.genres.each do |a|%>
-            <%= a.name %>
+          <% @artist.genres.each do |genre| %>
+            <%= link_to genre.name, genre, class: "link-text" %><%= "," unless genre == @artist.genres.last %>
           <% end %>
         </td>
         <td>
-          <% @artist.sub_genres.each do |a|%>
-            <%= a.name %>
+          <% @artist.sub_genres.each do |sub_genre| %>
+            <%= link_to sub_genre.name, sub_genre, class: "link-text" %><%= "," unless sub_genre == @artist.sub_genres.last %>
           <% end %>
         </td>
       </tr>

@@ -42,7 +42,13 @@ class ArtistsController < ApplicationController
   # PATCH/PUT /artists/1 or /artists/1.json
   def update
     respond_to do |format|
-      if @artist.update(artist_params)
+        @artist.name = params[:artist][:name]
+        @artist.country = params[:artist][:country]
+
+        @artist.genres << genre
+        @artist.sub_genres << sub_genre
+
+      if @artist.save
         format.html { redirect_to artist_url(@artist), notice: "Artist was successfully updated." }
         format.json { render :show, status: :ok, location: @artist }
       else
