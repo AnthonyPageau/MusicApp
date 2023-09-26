@@ -15,6 +15,37 @@
 </table>
 <br>
 
+<table>
+  <thead>
+    <tr>
+      <th>User's songs</th>
+      <th>Sub Genre</th>
+      <th>artist</th>
+    </tr>
+  </thead>
+  <% if @user.songs.any? %>
+    <% @user.songs.each do |song|%>
+      <tbody>
+          <tr>
+            <td>
+              <div class="song-container">
+                <p class="song-name"><%= song.name %></p>
+                  <iframe src="https://open.spotify.com/embed/track/<%=song.song_link %>" width="300" height="100" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              </div>
+            </td>
+            <td class='link-text'><%= link_to song.sub_genre.name, sub_genre_path(song.sub_genre) %></td>
+            <td class='link-text'>
+              <% if song.artist.present? %>
+                <%= link_to song.artist.name, artist_path(song.artist) %>
+              <% end %>
+            </td>
+          </tr>
+      </tbody>
+     <% end %> 
+  <% end %>
+</table>
+<br>
+
 <div style="text-align: center;">
   <% if current_user == @user %>
     <%= link_to "Edit User", edit_user_path(@user), class: "button" %> |
